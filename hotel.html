@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nairobi Serena Hotel - StayRate</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            background: #111827;
+            color: white;
+            padding: 18px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #f59e0b;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: #f59e0b;
+        }
+
+
+        /* HERO */
+
+        .hero {
+            height: 400px;
+
+            background-image:
+            linear-gradient(
+                rgba(0,0,0,0.35),
+                rgba(0,0,0,0.45)
+            ),
+            url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .hero-content {
+            color: white;
+            width: 84%;
+            margin: auto;
+            padding-bottom: 40px;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .location {
+            font-size: 17px;
+        }
+
+
+        /* MAIN */
+
+        .container {
+            width: 84%;
+            margin: 30px auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+
+        /* CARDS */
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            margin-bottom: 18px;
+        }
+
+
+        /* RATING */
+
+        .overall {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .rating-number {
+            background: #f59e0b;
+            color: white;
+
+            font-size: 30px;
+            font-weight: bold;
+
+            padding: 12px 18px;
+            border-radius: 10px;
+        }
+
+        .stars {
+            color: #f59e0b;
+            font-size: 22px;
+        }
+
+        .rating-text {
+            color: #666;
+        }
+
+
+        /* RATING BARS */
+
+        .rating-item {
+            margin: 18px 0;
+        }
+
+        .rating-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 7px;
+        }
+
+        .bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .fill {
+            height: 100%;
+            background: #f59e0b;
+        }
+
+
+        /* BUTTON */
+
+        .btn {
+            display: inline-block;
+
+            background: #f59e0b;
+            color: white;
+
+            padding: 13px 22px;
+
+            border-radius: 7px;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #d97706;
+        }
+
+
+        /* HOTEL INFO */
+
+        .info p {
+            margin: 12px 0;
+            color: #555;
+        }
+
+
+        /* REVIEW */
+
+        .review {
+            border-bottom: 1px solid #ddd;
+            padding: 18px 0;
+        }
+
+        .review:last-child {
+            border-bottom: none;
+        }
+
+        .review-name {
+            font-weight: bold;
+        }
+
+        .review-date {
+            color: #888;
+            font-size: 13px;
+        }
+
+        .review-stars {
+            color: #f59e0b;
+            margin: 7px 0;
+        }
+
+        .review p {
+            color: #555;
+            line-height: 1.5;
+        }
+
+
+        /* RIGHT SIDE */
+
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .small {
+            color: #777;
+            font-size: 14px;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 800px) {
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 330px;
+            }
+
+            .hero-content h1 {
+                font-size: 30px;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav a {
+                margin-left: 8px;
+                font-size: 14px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+        Stay<span>Rate</span>
+    </div>
+
+    <div>
+
+        <a href="index.html">Home</a>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="review.html">
+            Write Review
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- HOTEL HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Nairobi Serena Hotel
+        </h1>
+
+        <p class="location">
+            📍 Nairobi, Kenya
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- MAIN CONTENT -->
+
+<div class="container">
+
+    <div class="grid">
+
+
+        <!-- LEFT COLUMN -->
+
+        <div>
+
+
+            <!-- ABOUT -->
+
+            <div class="card">
+
+                <h2>
+                    About this hotel
+                </h2>
+
+                <p style="line-height:1.6; color:#555;">
+
+                    Nairobi Serena Hotel is a luxury hotel located
+                    in the heart of Nairobi. It offers comfortable
+                    accommodation, dining, meeting facilities and
+                    various services for travelers and business guests.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- RATINGS -->
+
+            <div class="card">
+
+                <h2>
+                    Guest Ratings
+                </h2>
+
+
+                <div class="overall">
+
+                    <div class="rating-number">
+                        4.5
+                    </div>
+
+                    <div>
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <div class="rating-text">
+                            Based on 128 reviews
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CLEANLINESS -->
+
+                <div class="rating-item">
+
+                    <div class="rating-header">
+
+                        <span>
+                            Cleanliness
+                        </span>
+
+                        <strong>
+                            4.6
+                        </strong>
+
+                    </div>
+
+                    <div class="bar">
+
+                        <div
+                            class="fill"
+                            style="width:92%">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SERVICE -->
+
+                <div class="rating-item">
+
+                    <div class="rating-header">
+
+                        <span>
+                            Service
+                        </span>
+
+                        <strong>
+                            4.5
+                        </strong>
+
+                    </div>
+
+                    <div class="bar">
+
+                        <div
+                            class="fill"
+                            style="width:90%">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- LOCATION -->
+
+                <div class="rating-item">
+
+                    <div class="rating-header">
+
+                        <span>
+                            Location
+                        </span>
+
+                        <strong>
+                            4.7
+                        </strong>
+
+                    </div>
+
+                    <div class="bar">
+
+                        <div
+                            class="fill"
+                            style="width:94%">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- COMFORT -->
+
+                <div class="rating-item">
+
+                    <div class="rating-header">
+
+                        <span>
+                            Comfort
+                        </span>
+
+                        <strong>
+                            4.5
+                        </strong>
+
+                    </div>
+
+                    <div class="bar">
+
+                        <div
+                            class="fill"
+                            style="width:90%">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- VALUE -->
+
+                <div class="rating-item">
+
+                    <div class="rating-header">
+
+                        <span>
+                            Value for Money
+                        </span>
+
+                        <strong>
+                            4.2
+                        </strong>
+
+                    </div>
+
+                    <div class="bar">
+
+                        <div
+                            class="fill"
+                            style="width:84%">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- REVIEWS -->
+
+            <div class="card">
+
+                <h2>
+                    Guest Reviews
+                </h2>
+
+
+                <div class="review">
+
+                    <div class="review-name">
+                        Sarah M.
+                    </div>
+
+                    <div class="review-date">
+                        September 2026
+                    </div>
+
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        Beautiful hotel with excellent service.
+                        The rooms were clean and comfortable.
+                    </p>
+
+                </div>
+
+
+
+                <div class="review">
+
+                    <div class="review-name">
+                        David K.
+                    </div>
+
+                    <div class="review-date">
+                        August 2026
+                    </div>
+
+                    <div class="review-stars">
+                        ★★★★☆
+                    </div>
+
+                    <p>
+                        Great location and friendly staff.
+                        I would definitely consider staying here again.
+                    </p>
+
+                </div>
+
+
+
+                <div class="review">
+
+                    <div class="review-name">
+                        Anonymous Traveler
+                    </div>
+
+                    <div class="review-date">
+                        July 2026
+                    </div>
+
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        Very comfortable stay and a great
+                        overall experience.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RIGHT COLUMN -->
+
+        <div>
+
+
+            <!-- WRITE REVIEW -->
+
+            <div class="card">
+
+                <h2>
+                    Stayed here?
+                </h2>
+
+                <p style="color:#666; margin-bottom:20px;">
+
+                    Share your experience and help
+                    other travelers.
+
+                </p>
+
+                <a
+                    href="review.html"
+                    class="btn"
+                >
+                    Write a Review
+                </a>
+
+            </div>
+
+
+
+            <!-- PRICE -->
+
+            <div class="card">
+
+                <h2>
+                    Average Price
+                </h2>
+
+                <div class="price">
+                    KSh 15,000+
+                </div>
+
+                <div class="small">
+                    Estimated price per night
+                </div>
+
+            </div>
+
+
+
+            <!-- INFORMATION -->
+
+            <div class="card info">
+
+                <h2>
+                    Hotel Information
+                </h2>
+
+                <p>
+                    📍 Nairobi, Kenya
+                </p>
+
+                <p>
+                    ⭐ Luxury Hotel
+                </p>
+
+                <p>
+                    🍽️ Restaurant
+                </p>
+
+                <p>
+                    🏊 Swimming Pool
+                </p>
+
+                <p>
+                    📶 Wi-Fi
+                </p>
+
+                <p>
+                    🅿️ Parking
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

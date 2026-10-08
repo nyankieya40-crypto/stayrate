@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayRate - Dashboard</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #111827;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #f59e0b;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: #f59e0b;
+        }
+
+        /* HEADER */
+        .welcome {
+            padding: 40px 8%;
+            background: white;
+        }
+
+        .welcome h1 {
+            margin-bottom: 10px;
+        }
+
+        .welcome p {
+            color: #666;
+        }
+
+        /* DASHBOARD */
+        .dashboard {
+            width: 84%;
+            margin: 30px auto;
+        }
+
+        /* STATS */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .stat-card h2 {
+            font-size: 30px;
+            margin-bottom: 8px;
+            color: #f59e0b;
+        }
+
+        .stat-card p {
+            color: #666;
+        }
+
+        /* MAIN GRID */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+        }
+
+        .card h2 {
+            margin-bottom: 20px;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            background: #f59e0b;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 7px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #d97706;
+        }
+
+        .btn-dark {
+            background: #111827;
+        }
+
+        .btn-dark:hover {
+            background: #1f2937;
+        }
+
+        /* REVIEW */
+        .review {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .review:last-child {
+            border-bottom: none;
+        }
+
+        .stars {
+            color: #f59e0b;
+            margin: 7px 0;
+        }
+
+        /* PROFILE */
+        .profile {
+            text-align: center;
+        }
+
+        .profile-icon {
+            width: 80px;
+            height: 80px;
+            background: #111827;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 15px;
+        }
+
+        .profile p {
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            .dashboard {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                margin-left: 8px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">
+            Stay<span>Rate</span>
+        </div>
+
+        <div>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="login.html">Logout</a>
+        </div>
+    </nav>
+
+
+    <!-- WELCOME -->
+    <section class="welcome">
+        <h1>Welcome back, GUEST 👋</h1>
+        <p>Manage your reviews, rewards and StayRate activity.</p>
+    </section>
+
+
+    <!-- DASHBOARD -->
+    <div class="dashboard">
+
+        <!-- STATISTICS -->
+        <div class="stats">
+
+            <div class="stat-card">
+                <h2>0</h2>
+                <p>Reviews Written</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>0</h2>
+                <p>Points Earned</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>KSh 0</h2>
+                <p>Available Rewards</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>0</h2>
+                <p>Hotels Visited</p>
+            </div>
+
+        </div>
+
+
+        <!-- MAIN CONTENT -->
+        <div class="main-grid">
+
+            <!-- LEFT -->
+            <div>
+
+                <div class="card">
+
+                    <h2>Write a Hotel Review ✍️</h2>
+
+                    <p style="margin-bottom:20px; color:#666;">
+                        Share your experience and earn points for verified reviews.
+                    </p>
+
+                    <a href="review.html" class="btn">
+    Write Review
+</a>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>Your Recent Reviews</h2>
+
+                    <div class="review">
+
+                        <strong>No reviews yet</strong>
+
+                        <p style="color:#666; margin-top:5px;">
+                            Your reviews will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT -->
+            <div>
+
+                <div class="card profile">
+
+                    <div class="profile-icon">
+                        J
+                    </div>
+
+                    <h2>GUEST</h2>
+
+                    <p>Traveler / Reviewer</p>
+
+                    <p>Member since 2026</p>
+
+                    <br>
+
+                    <a href="#" class="btn btn-dark">
+                        Edit Profile
+                    </a>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>Rewards 💰</h2>
+
+                    <p style="color:#666; margin-bottom:15px;">
+                        Earn points by submitting genuine hotel reviews.
+                    </p>
+
+                    <strong>0 Points</strong>
+
+                    <br><br>
+
+                    <button class="btn" onclick="withdraw()">
+                        Withdraw Rewards
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+     
+
+        function withdraw() {
+            alert("You need at least 1,000 points before requesting a reward.");
+        }
+
+    </script>
+
+</body>
+</html>

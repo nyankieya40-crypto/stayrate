@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StayRate - Write a Review</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+        }
+
+        nav {
+            background: #2563eb;
+            color: white;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h2 {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2563eb;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        select,
+        textarea,
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .rating-group {
+            margin-top: 20px;
+        }
+
+        .rating-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .stars {
+            display: flex;
+            gap: 8px;
+        }
+
+        .star {
+            font-size: 32px;
+            cursor: pointer;
+            color: #ccc;
+        }
+
+        .star.selected {
+            color: #f5b301;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 30px;
+            padding: 14px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        button:disabled {
+            background: #999;
+            cursor: not-allowed;
+        }
+
+        #message {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .user-info {
+            background: #eef4ff;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <h2>StayRate</h2>
+    <a href="dashboard.html">Dashboard</a>
+</nav>
+
+<div class="container">
+
+    <h1>⭐ Write a Review</h1>
+
+    <p class="subtitle">
+        Share your experience and help other travelers.
+    </p>
+
+    <div class="user-info" id="userInfo">
+        Checking your account...
+    </div>
+
+    <form id="reviewForm">
+
+        <label for="hotel">Select Hotel</label>
+
+        <select id="hotel" required>
+            <option value="">Loading hotels...</option>
+        </select>
+
+
+        <!-- OVERALL -->
+        <div class="rating-group">
+            <div class="rating-title">Overall Rating</div>
+
+            <div class="stars" data-rating="overall">
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+            </div>
+        </div>
+
+
+        <!-- CLEANLINESS -->
+        <div class="rating-group">
+            <div class="rating-title">Cleanliness</div>
+
+            <div class="stars" data-rating="cleanliness">
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+            </div>
+        </div>
+
+
+        <!-- SERVICE -->
+        <div class="rating-group">
+            <div class="rating-title">Service</div>
+
+            <div class="stars" data-rating="service">
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+            </div>
+        </div>
+
+
+        <!-- LOCATION -->
+        <div class="rating-group">
+            <div class="rating-title">Location</div>
+
+            <div class="stars" data-rating="location">
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+            </div>
+        </div>
+
+
+        <!-- COMFORT -->
+        <div class="rating-group">
+            <div class="rating-title">Comfort</div>
+
+            <div class="stars" data-rating="comfort">
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+            </div>
+        </div>
+
+
+        <!-- VALUE -->
+        <div class="rating-group">
+            <div class="rating-title">Value for Money</div>
+
+            <div class="stars" data-rating="value">
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+            </div>
+        </div>
+
+
+        <label for="reviewText">Your Review</label>
+
+        <textarea
+            id="reviewText"
+            placeholder="Tell other travelers about your experience..."
+            required
+        ></textarea>
+
+
+        <button type="submit" id="submitButton">
+            Submit Review
+        </button>
+
+    </form>
+
+    <div id="message"></div>
+
+</div>
+
+
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase-config.js"></script>
+
+
+<script>
+
+let currentUser = null;
+let currentProfile = null;
+
+let ratings = {
+    overall: 0,
+    cleanliness: 0,
+    service: 0,
+    location: 0,
+    comfort: 0,
+    value: 0
+};
+
+
+// ------------------------------------
+// CHECK LOGIN
+// ------------------------------------
+
+async function checkUser() {
+
+    const { data, error } = await supabaseClient.auth.getUser();
+
+    if (error || !data.user) {
+
+        document.getElementById("userInfo").innerHTML =
+            "❌ You must be logged in to write a review.";
+
+        document.getElementById("submitButton").disabled = true;
+
+        return;
+    }
+
+    currentUser = data.user;
+
+    const name =
+        currentUser.user_metadata?.full_name ||
+        currentUser.email;
+
+    document.getElementById("userInfo").innerHTML =
+        "👤 Reviewing as: <strong>" + name + "</strong>";
+
+}
+
+
+// ------------------------------------
+// LOAD HOTELS
+// ------------------------------------
+
+async function loadHotels() {
+
+    const hotelSelect = document.getElementById("hotel");
+
+    const { data, error } = await supabaseClient
+        .from("Hotels")
+        .select('id, "Name", location')
+        .eq("is_published", true)
+        .order('"Name"');
+
+    if (error) {
+
+        console.error(error);
+
+        hotelSelect.innerHTML =
+            '<option value="">❌ Could not load hotels</option>';
+
+        return;
+    }
+
+    hotelSelect.innerHTML =
+        '<option value="">Select a hotel</option>';
+
+    data.forEach(hotel => {
+
+        const option = document.createElement("option");
+
+        option.value = hotel.id;
+
+        option.textContent =
+            hotel["Name"] + " — " + hotel.location;
+
+        hotelSelect.appendChild(option);
+
+    });
+
+    // Check if homepage sent a hotel name
+    const params = new URLSearchParams(window.location.search);
+
+    const hotelName = params.get("hotel");
+
+    if (hotelName) {
+
+        const matchingHotel = data.find(
+            hotel =>
+                hotel["Name"].toLowerCase() === hotelName.toLowerCase()
+        );
+
+        if (matchingHotel) {
+            hotelSelect.value = matchingHotel.id;
+        }
+
+    }
+
+}
+
+
+// ------------------------------------
+// STAR RATINGS
+// ------------------------------------
+
+document.querySelectorAll(".stars").forEach(group => {
+
+    const ratingName = group.dataset.rating;
+
+    const stars = group.querySelectorAll(".star");
+
+    stars.forEach(star => {
+
+        star.addEventListener("click", function() {
+
+            const value = Number(this.dataset.value);
+
+            ratings[ratingName] = value;
+
+            stars.forEach(s => {
+
+                const starValue = Number(s.dataset.value);
+
+                if (starValue <= value) {
+                    s.classList.add("selected");
+                } else {
+                    s.classList.remove("selected");
+                }
+
+            });
+
+        });
+
+    });
+
+});
+
+
+// ------------------------------------
+// SUBMIT REVIEW
+// ------------------------------------
+
+document.getElementById("reviewForm").addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+        const message = document.getElementById("message");
+
+        if (!currentUser) {
+
+            message.style.color = "red";
+            message.textContent =
+                "❌ Please log in before submitting a review.";
+
+            return;
+        }
+
+
+        const hotelId =
+            document.getElementById("hotel").value;
+
+        const reviewText =
+            document.getElementById("reviewText").value.trim();
+
+
+        if (!hotelId) {
+
+            message.style.color = "red";
+            message.textContent =
+                "❌ Please select a hotel.";
+
+            return;
+        }
+
+
+        if (
+            ratings.overall === 0 ||
+            ratings.cleanliness === 0 ||
+            ratings.service === 0 ||
+            ratings.location === 0 ||
+            ratings.comfort === 0 ||
+            ratings.value === 0
+        ) {
+
+            message.style.color = "red";
+            message.textContent =
+                "❌ Please give a rating in every category.";
+
+            return;
+        }
+
+
+        if (!reviewText) {
+
+            message.style.color = "red";
+            message.textContent =
+                "❌ Please write your review.";
+
+            return;
+        }
+
+
+        const submitButton =
+            document.getElementById("submitButton");
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Submitting...";
+
+        message.style.color = "#2563eb";
+        message.textContent = "Saving your review...";
+
+
+        const reviewerName =
+            currentUser.user_metadata?.full_name ||
+            currentUser.email;
+
+
+        const { data, error } = await supabaseClient
+            .from("reviews")
+            .insert([
+                {
+                    hotel_id: hotelId,
+                    user_id: currentUser.id,
+                    reviewer_name: reviewerName,
+
+                    overall: ratings.overall,
+                    cleanliness: ratings.cleanliness,
+                    service: ratings.service,
+                    location: ratings.location,
+                    comfort: ratings.comfort,
+                    value: ratings.value,
+
+                    review_text: reviewText
+                }
+            ])
+            .select();
+
+
+        if (error) {
+
+            console.error(error);
+
+            message.style.color = "red";
+            message.textContent =
+                "❌ Could not save review: " + error.message;
+
+            submitButton.disabled = false;
+            submitButton.textContent = "Submit Review";
+
+            return;
+        }
+
+
+        message.style.color = "green";
+        message.textContent =
+            "✅ Review submitted successfully!";
+
+
+        document.getElementById("reviewForm").reset();
+
+
+        document.querySelectorAll(".star").forEach(star => {
+            star.classList.remove("selected");
+        });
+
+
+        ratings = {
+            overall: 0,
+            cleanliness: 0,
+            service: 0,
+            location: 0,
+            comfort: 0,
+            value: 0
+        };
+
+
+        submitButton.disabled = false;
+        submitButton.textContent = "Submit Review";
+
+    }
+);
+
+
+// ------------------------------------
+// START
+// ------------------------------------
+
+checkUser();
+loadHotels();
+
+</script>
+
+</body>
+</html>
